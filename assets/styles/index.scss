@@ -1,0 +1,372 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: Inter, sans-serif;
+}
+
+@mixin button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px solid #000;
+}
+
+@mixin svg-btn {
+    -moz-appearance: none;
+    appearance: none;
+    align-items: center;
+    background: 0 0;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    outline: none;
+}
+
+// @mixin svg-container {
+//     cursor: pointer;
+//     vertical-align: baseline;
+//     border: 0 solid #000;
+//     display: flex;
+//     flex-direction: column;
+//     flex-shrink: 0;
+//     position: relative;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+
+@mixin flexAlign() {
+    display: flex;
+    align-items: center;
+    
+}
+
+$cutEdgeBorderRadius:  30px 80px 30px 80px;
+
+body {
+    color: #2D2D2D;
+    height: 100vh;
+    font-weight: 400;
+    line-height: 1.2;
+    
+    background: url("../images/bg2.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 500px;
+
+    .thumb-container {
+        position: absolute;
+        top: 100px;
+        right: 0;
+        z-index: 1;
+        // transform: translate(-50%, 0);
+
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+
+        header {
+            @include flexAlign();
+            justify-content: space-between;
+            flex-direction: row;
+            padding: 15px 0;
+
+
+            .header-detail-container {
+                @include flexAlign();
+                flex-direction: row;
+
+                .header-logo-container {
+                    margin-right: 1.5em;
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .header-categories-container {
+                    @include flexAlign();
+                    flex-direction: row;
+                    margin-right: 1.3em;
+
+                    .categories {
+                        @include flexAlign();
+                        font-weight: 600;
+                        margin-right: 1.2em;
+                        
+                        .category-icon-container {
+                            @include button-container();
+                            margin-right: 0.8em;
+
+                            button {
+                                @include svg-btn();
+                            }
+                        }
+                    }
+                }
+
+                .header-social-container {
+                    @include flexAlign();
+                    flex-direction: row;
+
+                    .social-icon-container {
+                        @include button-container();
+                        margin-right: 0.9em;
+
+                        button {
+                            @include svg-btn();
+
+                        }
+                    }
+                }
+            }
+
+            .account-auth-container {
+                @include flexAlign();
+                
+
+                .header-icon-cart-container {
+                    @include button-container();
+                    margin-right: 1.4em;
+
+                    button {
+                        @include svg-btn();
+                    }
+                }
+
+                a {
+                    @include flexAlign();
+                    justify-content: center;
+                    text-decoration: none;
+                    color: #ffffff;
+                    button {
+                        @include svg-btn();
+                        background: #323232;
+                        color: #ffffff;
+                        padding: 0.9em 1.5em;
+                        border-radius: 30px 80px 30px 70px;
+                    }
+                }
+            }
+        }
+
+        main {
+            padding: 3em 0 0 0;
+            .main-display {
+                display: grid;
+                // align-items: center;
+                grid-template-columns: repeat(2, 1fr);
+
+
+                .main-detail-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+
+                    .location-search-container {
+                        // padding: 1em 0;
+                        .main-detail-location-container {
+                            @include flexAlign();
+                            padding: 0.8em 0;
+                            // justify-content: space-between;
+
+                            .my-location-container {
+                                @include flexAlign();
+                                font-size: 0.9rem;
+                                font-weight: 500;
+                                margin-right: 2em;
+
+                                .location-icon-container {
+                                    margin-right: 0.7em;
+                                    img {
+                                        height: 20px;
+                                        vertical-align: middle
+                                    }
+                                }
+                            }
+
+                            .user-location-container {
+                                @include flexAlign();
+                                font-size: 0.8rem;
+                                font-weight: 500;
+
+                                span {
+                                    color: rgb(66, 233, 66);
+                                }
+                            }
+                        }
+
+                        .main-search-container {
+                            @include flexAlign();
+
+                            background: 0 0;
+                            border: 1px solid #F0F0F0;
+                            box-sizing: border-box;
+                            border-radius: $cutEdgeBorderRadius;
+                            height: 53px;
+                            width: 450px;
+
+                            input {
+                                width: 100%;
+                                height: 100%;
+                                background: none;
+                                border: 0px solid #000;
+                                outline: none;
+                                font-family: 'Inter', sans-serif;
+                                color: #ABBBC2;
+                                font-size: 14px;
+                                font-weight: 400;
+                                padding: 0 2em;
+                            }
+
+                            button {
+                                @include svg-btn();
+                                border-radius: $cutEdgeBorderRadius;
+                                background: #323232;
+                                height: 100%;
+                                padding: 0 3em;
+                                color: #ffffff;
+                            }
+
+                        }
+                    }
+
+                    .main-popular-category-container {
+                        padding: 1.5em 0;
+                        .popular-category-header {
+                            color: #BDBDBD;
+                            font-size: 0.8rem;
+                            font-weight: 500;
+                            padding: 0.8em 0;
+                        }
+                        .popular-category-display {
+                            @include flexAlign();
+
+                            .popular-category {
+                                background: #F0F0F0;
+                                height: 115px;
+                                width: 73px;
+                                margin-right: 1.5em;
+                                border-radius: 100vh;
+                                text-align: center;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                font-size: 0.8rem;
+                                font-weight: 500;
+
+                                .popular-category-icon {
+                                    @include button-container();
+                                    margin-bottom: 0.7em;
+                                    img {
+                                        width: 50px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .main-recent-preorder-container {
+                        .recent-preorder-header {
+                            color: #BDBDBD;
+                            font-size: 0.8rem;
+                            padding: 0.8em 0;
+                        }
+
+                        .recent-preorder-container {
+                            @include flexAlign();
+
+                            .recent-preorder-image-display {
+                                // width: 100%;
+                                // display: block;
+                                margin-right: 1em;
+                                position: relative;
+                                border-radius: 20px 60px 20px 60px;
+
+                    
+                                .recent-preorder-image {
+                                    overflow: hidden;
+                                    display: block;
+                                    border-radius: 20px 40px 20px 40px;
+                                    width: 220px;
+                                    height: 130px;
+                                    position: relative;
+                        
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        
+                                    }
+
+                                    .burger-logo-display {
+                                        position: absolute;
+                                        @include flexAlign();
+                                        flex-direction: row;
+                                        bottom: 0;
+                                        width: 100%;
+                                        padding: 0.8em 2em;
+                                        color: #ffffff;
+
+                                        .burger-icon-container {
+                                            margin-right: 0.5em;
+                                        }
+
+                                        .burger-logo-detail {
+                                            display: flex;
+                                            flex-direction: column;
+
+                                            .burger-logo-header {
+                                                font-size: 0.7rem;
+                                                font-weight: bold;
+                                                line-height: 13px;
+                                            }
+                                            .burger-logo-rating {
+                                                font-size: 0.6rem;
+                                                line-height: 13px;
+                                            }
+
+                                        }
+                                    }
+                                    
+                                }
+
+                                
+                                
+                            }
+                        }
+
+                        
+                    }
+                }
+
+
+
+
+                .main-image-container {
+                    position: relative;
+                    
+                    .back-burger-container{
+                        position: absolute;
+                        top: -70px;
+                        // right: -30px;
+                        z-index: -1;
+                        // border: 1px solid red;
+                        svg {
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+}
